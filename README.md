@@ -1,4 +1,4 @@
-# image-to-dices
+# 🖼️ Image to Dices 🎲
 
 Little project made in one hour that recreate an image with six-faced dices
 
