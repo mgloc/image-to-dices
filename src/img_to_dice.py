@@ -74,7 +74,7 @@ def main(image_path: str = "img/sample-image.jpg", output_file: str = "img/outpu
             dice_image = dices.get_image_by_white_level(level_of_white)
             new_image.paste(dice_image, (x * dices.get_img_size(), y * dices.get_img_size()))
 
-    new_image.save(output_file)
+    new_image.resize((width, height)).save(output_file)
 
 
 if __name__ == "__main__":
