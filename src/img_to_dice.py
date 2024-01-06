@@ -40,8 +40,17 @@ class Dices:
             raise ValueError("Level of white must be between 0 and 255")
         for i in range(12):
             if level_of_white >= self.level_of_white_values[i]:
+                if i != 0:
+                    return self.calculate_nearest_white_level(level_of_white, i - 1, i)
                 return self.dices_images[i]
         return self.dices_images[11]
+
+    def calculate_nearest_white_level(self, level_of_white, i1, i2):
+        # Assuming that i1 == i2 - 1 and self.level_of_white_values[i1] <= level_of_white <= self.level_of_white_values[i2]
+        # Return the nearest dice image to the level of white
+        if level_of_white - self.level_of_white_values[i1] < self.level_of_white_values[i2] - level_of_white:
+            return self.dices_images[i1]
+        return self.dices_images[i2]
 
     def get_img_size(self):
         return self.DICE_IMG_PIXEL_SIZE
